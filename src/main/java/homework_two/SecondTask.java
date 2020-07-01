@@ -2,7 +2,7 @@ package homework_two;
 
 public class SecondTask {
     public static void main(String[] args) {
-
+    fillDiagonal();
         int []arr=new int []{1,12,0,7,3,23};    //задание 6
         System.out.println(checkBalance(arr));
 
@@ -59,7 +59,7 @@ public class SecondTask {
         int[][] arr = new int[5][5];
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                if (i == j) {
+                if (i == j ||j==(arr.length-1-i)) {
                     arr[i][j] = 1;
                 }   System.out.print(arr[i][j] + " ");
             } System.out.println();
