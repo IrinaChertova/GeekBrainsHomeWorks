@@ -2,12 +2,78 @@ package homework_two;
 
 public class SecondTask {
     public static void main(String[] args) {
-    fillDiagonal();
+        spiralArray();
+
         int []arr=new int []{1,12,0,7,3,23};    //задание 6
         System.out.println(checkBalance(arr));
 
         moveArray(arr, -2);
+
     }
+
+    // NEW заполнить неравносторонний массив по спирали
+
+    public static void spiralArray() {   // доп задание
+        int fillNumber = 1;
+
+        int m = 8;
+        int n = 7;
+
+        int[][] arr = new int[m][n];
+        int numberOfPerimetrs=0;
+
+        if (m > n && n % 2 != 0) {         // определение количества периметров
+            numberOfPerimetrs = n /2 +1;
+        } else if (m > n && n %2 == 0) {
+            numberOfPerimetrs = n / 2;
+        } else if (m<=n && m%2 != 0) {
+            numberOfPerimetrs = m / 2 + 1;
+        } else if (m<=n && m % 2 == 0) {
+            numberOfPerimetrs = m / 2;
+        }
+
+
+        for (int countPerimetr = 0; countPerimetr < numberOfPerimetrs; countPerimetr++) {
+
+            for (int j = countPerimetr; j < n - countPerimetr; j++) {                   //первая строка
+                arr[countPerimetr][j] = fillNumber;
+                if (fillNumber == m*n){
+                    break;
+                }
+                fillNumber++;
+            }
+            for (int i = countPerimetr + 1; i < m - countPerimetr - 1; i++) { //последний столбец
+                arr[i][n - 1 - countPerimetr] = fillNumber;
+                if (fillNumber == m*n){
+                    break;
+                }
+                fillNumber++;
+            }
+            for (int k = n - 1 - countPerimetr; k > countPerimetr; k--) {             //последняя строка
+                arr[m - 1 - countPerimetr][k] = fillNumber;
+                if (fillNumber == m*n){
+                    break;
+                }
+                fillNumber++;
+            }
+            for (int l = m - 1 - countPerimetr; l > countPerimetr; l--) {            //первый столбец
+                arr[l][countPerimetr] = fillNumber;
+                if (fillNumber == m*n){
+                    break;
+                }
+                fillNumber++;
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+
+
 
     public static void invertArray() {              //задание 1
         int[] arr = {1, 0, 0, 1, 1, 1, 0, 0};
@@ -139,6 +205,6 @@ public class SecondTask {
             for (int i = 0; i < arrToMove.length; i++) {
                 System.out.print(arrToMove[i]+ " ");
             }
-        }
+        }System.out.println();
     }
 }
