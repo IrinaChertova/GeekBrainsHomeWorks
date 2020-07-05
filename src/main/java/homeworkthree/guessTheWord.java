@@ -9,26 +9,39 @@ public class guessTheWord {
         int answerIndex = (int) (Math.random() * words.length);
         String rightAnswer = words[answerIndex];
         String userAnswer="";
-        String helpAnswer=""; // подсказка
+        System.out.println("угадайте слово: овощ или фрукт на английском");
 
-        for (int i=0; i>=0; i++){
-            System.out.println("угадайте слово: овощ или фрукт на английском");
+    for (int i=0; i>=0; i++){
             userAnswer=sc.next();
             if (rightAnswer.equals(userAnswer)) {
                 break;
             } else {
-                System.out.println("Вы не угадали, попробуйте еще раз! Подсказка: ");
-                char helpLetter=rightAnswer.charAt(i);
-                helpAnswer=helpAnswer+helpLetter;
+                System.out.println("Вы не угадали, попробуйте еще раз! Подсказка(совпавшие буквы): ");
+                String helpAnswer=""; //подсказка
+                for (int j = 0; j < rightAnswer.length() &&j<userAnswer.length(); j++) {
+                    char userLetter = userAnswer.charAt(j);
+                    char rightLetter = rightAnswer.charAt(j);
+                    char helpLetter;
+                    if (userLetter == rightLetter) {
+                        helpLetter = userLetter;
+                    } else {
+                        helpLetter = '#';
+                    }
+                    helpAnswer = helpAnswer + helpLetter;
+                }
                 System.out.printf("%.15s", helpAnswer+"#################");
                 System.out.println();
-                }
+            }
             }
         System.out.println("Вы выиграли!");
         sc.close();
     }
 }
 
+//                char helpLetter=rightAnswer.charAt(i);
+//                helpAnswer=helpAnswer+helpLetter;
+//                System.out.printf("%.15s", helpAnswer+"#################");
+//                System.out.println();
 //При запуске программы компьютер загадывает слово, запрашивает ответ у пользователя,
 //сравнивает его с загаданным словом и сообщает правильно ли ответил пользователь.
 // Если слово не угадано, компьютер показывает буквы которые стоят на своих местах.
