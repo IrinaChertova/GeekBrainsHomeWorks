@@ -13,29 +13,33 @@ public class Animal {
         this.name=name;
     }
 
-    public void run(int distanceToRun) {
+    public void run() {
         boolean isRun = true;
+        int distanceToRun=(int)(Math.random()*700);
         if (distanceToRun > this.maxDistanceToRun || distanceToRun < 0) {
             isRun = false;
         }
-            System.out.println("run: " +isRun + "|| max distance for that animal- " +this.maxDistanceToRun );
+            System.out.println("run distance: " + distanceToRun+ " "+isRun + "|| max distance for that animal- " +this.maxDistanceToRun );
         }
 
 
-    public void  swim (int distanceToSwim){
+    public void  swim (){
             boolean isSwim = true;
+            int distanceToSwim=(int)(Math.random()*15);
             if (distanceToSwim > this.maxDistanceToSwim || distanceToSwim <= 0) {
                 isSwim = false;
                 }
-                System.out.println("swim: " + isSwim + "|| max distance for that animal- " + this.maxDistanceToSwim);
+                System.out.println("swim distance: " + distanceToSwim+ " " + isSwim + "|| max distance for that animal- " + this.maxDistanceToSwim);
             }
 
-    public void jump ( double heigthToJump){
+    public void jump (){
         boolean isJump = true;
+        double heigthToJump=(double)(Math.random()*2);
         if (heigthToJump > this.maxHeightToJump|| heigthToJump <= 0) {
             isJump = false;
         }
-            System.out.println("jump: " + isJump + "|| max heigth for that animal- " + this.maxHeightToJump );
+            System.out.printf("jump heigth: " + "%.2f" + " " + isJump + "|| max heigth for that animal- " + this.maxHeightToJump,  heigthToJump );
+            System.out.println();
         }
 
 
