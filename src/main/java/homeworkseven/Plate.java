@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Plate {
     private int food;
-    private boolean isEat; //поменять название
+    private boolean isEat;
     private boolean isIncreased;
 
     public Plate(int food) {

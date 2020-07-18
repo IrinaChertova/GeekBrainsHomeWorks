@@ -25,8 +25,6 @@ public class Main {
                 plate.increaseFood();
                 if (plate.getIsInreased()==true){
                     i--;
-                } else {
-                    i=i;
                 }
 
             }
